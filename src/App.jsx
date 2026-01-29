@@ -1,14 +1,16 @@
-import ResultGrid from "./components/resultGrid.jsx"
-import SearchBar from "./components/searchBar.jsx"
-import Tabs from "./components/tabs.jsx"
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CollectionPage from "./pages/CollectionPage"
+
 
 export default function App(){
 
   return(
     <div className='min-h-screen w-full text-white bg-gray-950'>
-      <SearchBar />
-      <Tabs />
-      <ResultGrid />
+      <Routes>
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/collection" element={<CollectionPage />} />
+      </Routes>
     </div>
   )
 }

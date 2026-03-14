@@ -7,11 +7,19 @@ export const searchSlice = createSlice({
         activeTab:'photos',
         results:[],
         loading:false,
-        error:null
+        error:null,
+        page:1,
+        totalPage:0
     },
     reducers:{
         setQuery(state, action){
             state.query = action.payload
+        },
+        setPage(state, action){
+            state.page = action.payload
+        },
+        setTotalPage(state, action){
+            state.totalPage = action.payload
         },
         setActiveTab(state, action){
             state.activeTab = action.payload
@@ -35,5 +43,5 @@ export const searchSlice = createSlice({
     }
 });
 
-export const {setQuery, setActiveTab, setResult, setLoading, setError, clearResults} = searchSlice.actions;
+export const {setQuery, setActiveTab, setPage, setTotalPage, setResult, setLoading, setError, clearResults} = searchSlice.actions;
 export default searchSlice.reducer;

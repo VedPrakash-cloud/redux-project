@@ -27,6 +27,7 @@ export const ResultCards = ({ item }) => {
               autoPlay
               loop
               muted
+              playsInline
               src={item.src}
             ></video>
           ) : (

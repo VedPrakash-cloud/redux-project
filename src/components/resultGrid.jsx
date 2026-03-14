@@ -4,14 +4,16 @@ import {
   setResult,
   setLoading,
   setError,
+  setTotalPage,
 } from "../redux/features/counterSlice";
 import { useEffect } from "react";
 import { ResultCards } from "./resultCards";
 
 export const ResultGrid = () => {
-  const { query, results, activeTab, loading, error } = useSelector(
+  const { query, results, activeTab, loading, error, page} = useSelector(
     (store) => store.search,
   );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,8 +22,8 @@ export const ResultGrid = () => {
       try {
         let data = [];
         dispatch(setLoading());
-        if (activeTab == "photos") {
-          let response = await FetchPhotos(query);
+        if (activeTab == "photos" && page == page) {
+          let response = await FetchPhotos(query, page);
           data = response.results.map((items) => ({
             id: items.id,
             title: items.alt_description,
@@ -31,8 +33,9 @@ export const ResultGrid = () => {
             download: items.links.download,
           }));
         }
-        if (activeTab == "videos") {
-          let response = await FetchVideos(query);
+        if (activeTab == "videos" && page == page) {
+          let response = await FetchVideos(query, page);
+          dispatch(setTotalPage(response.total_results))
           data = response.videos.map((item) => ({
             id: item.id,
             type: "videos",
@@ -48,7 +51,7 @@ export const ResultGrid = () => {
       }
     };
     getData();
-  }, [query, activeTab, dispatch]);
+  }, [query, activeTab, dispatch, page]);
 
   if (error)
     return (

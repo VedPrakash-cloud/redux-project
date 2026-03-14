@@ -12,7 +12,6 @@ export async function FetchPhotos(query, page = 1, per_page = 20){
                 headers:{Authorization:`Client-ID ${UNSPLASH_KEY}`}
             }
             )
-            console.log("res", res, "res.data", res.data)
             return res.data;
         } catch(err){
             console.error('unable to fetch images', err)

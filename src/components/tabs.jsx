@@ -35,9 +35,9 @@ export const Tabs = () => {
         ))}
         </div>
           <form className="flex gap-5 items-center-safe" onSubmit={(e)=>{handleSubmit(e)}}>
-            <button disabled = {currentPage == 1} onClick={()=>setCurrentPage(currentPage - 1)} className="inset-shadow-sm inset-shadow-white/30 cursor-pointer active:scale-95 rounded-lg px-4 py-1 shadow-sm shadow-white/30 disabled:text-red-500">Previous</button>
-            <span className="inset-shadow-sm inset-shadow-white/30 active:scale-95 rounded-full px-4 text-2xl shadow-sm shadow-white/30">{currentPage}</span>
-            <button disabled = {currentPage == lastPage} className="inset-shadow-sm inset-shadow-white/30 cursor-pointer active:scale-95 rounded-lg px-4 py-1 shadow-sm shadow-white/30 disabled:text-red-500" onClick={()=>setCurrentPage(currentPage + 1)}>Next</button>
+            <button disabled = {currentPage == 1} onClick={()=>setCurrentPage(currentPage - 1)} className="inset-shadow-sm inset-shadow-white/30 cursor-pointer text-xs md:text-base active:scale-95 rounded-lg px-4 py-1 shadow-sm shadow-white/30 disabled:text-red-500">Previous</button>
+            <span className="inset-shadow-sm inset-shadow-white/30 active:scale-95 rounded-full px-4 md:text-2xl shadow-sm shadow-white/30 text-xs">{currentPage}</span>
+            <button disabled = {currentPage == lastPage} className="inset-shadow-sm inset-shadow-white/30 cursor-pointer active:scale-95 rounded-lg px-4 py-1 text-xs md:text-base shadow-sm shadow-white/30 disabled:text-red-500" onClick={()=>setCurrentPage(currentPage + 1)}>Next</button>
           </form>
     </div>
   );

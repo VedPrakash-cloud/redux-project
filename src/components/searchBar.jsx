@@ -12,7 +12,7 @@ const SearchBar = () => {
     setText("");
   };
   return (
-    <div className="p-10 bg-gray-900">
+    <div className="p-10 bg-gray-900 w-full">
       <form
         className="flex"
         onSubmit={(e) => {
@@ -26,7 +26,7 @@ const SearchBar = () => {
           placeholder="Search anything..."
           className="border rounded-lg p-2 w-full mx-5 outline-none shadow-lg shadow-gray-800"
         />
-        <button className="border rounded-lg px-6 font-semibold py-2 active:scale-85 hover:shadow-lg shadow-gray-800 hover:transition delay-150 duration-300 hover:bg-gray-800 cursor-pointer">
+        <button className="text-xs md:text-base border rounded-lg px-6 font-semibold py-2 active:scale-85 hover:shadow-lg shadow-gray-800 hover:transition delay-150 duration-300 hover:bg-gray-800 cursor-pointer">
           Search
         </button>
       </form>
